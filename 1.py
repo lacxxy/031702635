@@ -27,7 +27,6 @@ for index in range(len(area)):
     result=re.search(r'\w+?'+area[index],address)
     if result:
         address=re.sub(result.group(),'',address)
-        print(address)
         output['地址'].append(result.group())
     else:
         output['地址'].append('')
