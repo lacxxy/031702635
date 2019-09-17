@@ -1,13 +1,8 @@
 # -*- coding: UTF-8 -*- 
-
-#李四,福建省福州13756899511市鼓楼区鼓西街道湖滨路110号湖滨大厦一层.
-
 import re
 import json
 ###数据
 userInput=input()
-
-
 area1=['省',"(市|自治州)",'(县|区|市)','(镇|街道|乡)',]
 area2=['省','(市|自治州)','(县|区|市)','(镇|街道|乡)','(街|路|巷)','号',]
 output={
@@ -16,7 +11,6 @@ output={
     "地址":[]
 }
 
-#r'\w+?市|自治州'
 output['姓名']=re.search(r'\d!(.*),',userInput).group(1)
 output['手机']=re.search(r'\d{11}',userInput).group()
 rank=userInput[0]#难度级别
@@ -31,4 +25,4 @@ for index in range(len(area)):
     else:
         output['地址'].append('')
 output['地址'].append(address)
-print(output)
+print(json.dumps(output))#输出
